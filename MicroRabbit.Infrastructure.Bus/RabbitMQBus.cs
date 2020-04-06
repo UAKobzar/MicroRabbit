@@ -70,7 +70,7 @@ namespace MicroRabbit.Infrastructure.Bus
                 _handlers.Add(eventName, new List<Type>());
             }
 
-            if(_handlers[eventName].Any(s=>s.GetType() == handlerType))
+            if(_handlers[eventName].Any(s=>s == handlerType))
             {
                 throw new ArgumentException($"Handler Type {handlerType.Name} is already registerd for {eventName}", nameof(handlerType));
             }
